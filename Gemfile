@@ -65,3 +65,8 @@ gem 'will_paginate'
 gem 'betterlorem'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
+
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra'
+
+gem "sidekiq-cron"

@@ -21,6 +21,14 @@ class InterviewMailer < ApplicationMailer
     end
   end
 
+  def interview_notification(start_time,end_time,emails)
+    @start_time = start_time
+    @end_time = end_time
+    emails.each do |email|
+      mail to: email , subject: "Reminder Interview Scheduled"
+    end
+  end
+
   def remove_update(participant)
     @participant = participant
 
