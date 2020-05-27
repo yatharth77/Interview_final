@@ -1,7 +1,2 @@
-Requirements
-=> User can schedule an interview
-=> Users can not schedule interview with clashing time slots 
-=> User can update, delete interview 
-=> On every updates to interview an email notification should be send.
+Remains Requirements
 => When interview updates or delete , there should only be one reminder for the interview prior 30 mins, old reminder should not be sent.
-=> We should have ability to add more participants to the interview if we want to .
