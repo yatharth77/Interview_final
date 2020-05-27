@@ -6,6 +6,15 @@ class ParticipantsController < ApplicationController
 		@participant = @interview.participants.build(participant_params.merge(interviewer_id: current_user.id))
 
 		if @participant.save
+
+		  @start_time = @participant.interview.schedule_at
+		  @end_time = @participant.interview.end_time
+		  @emails.Array
+		  @emails.push @participant.user.email
+
+		  duration = (start_time - Time.now).minutes - 30
+		  SendNotification.perform_at(duration.from_now, @interview.schedule_at, @interview.end_time, @emails)
+
 		  InterviewMailer.interview_confirmation(@participant).deliver
 	      flash[:success] = "Your participant has been added!"
 	      redirect_to interviews_path
