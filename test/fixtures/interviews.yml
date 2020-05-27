@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: MyString
+  role: MyString
+  user_id: 1
+  schedule_at: 2020-05-26 07:14:20
+  meet_link: MyString
+
+two:
+  topic: MyString
+  role: MyString
+  user_id: 1
+  schedule_at: 2020-05-26 07:14:20
+  meet_link: MyString
