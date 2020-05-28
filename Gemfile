@@ -70,3 +70,5 @@ gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra'
 
 gem "sidekiq-cron"
+
+gem 'rack-cors'

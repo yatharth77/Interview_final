@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_234139) do
+ActiveRecord::Schema.define(version: 2020_05_28_170717) do
 
   create_table "interviews", force: :cascade do |t|
     t.string "topic"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2020_05_26_234139) do
     t.string "user_name"
     t.datetime "end_time"
     t.index ["meet_link"], name: "index_interviews_on_meet_link", unique: true
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer "interview_id"
+    t.string "job_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "participants", force: :cascade do |t|

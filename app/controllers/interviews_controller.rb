@@ -3,7 +3,6 @@ class InterviewsController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index
-		# SendNotification.perform_async("date1","date2")
 		@interviews = Interview.where(user_id: current_user.id)
 	end
 
@@ -36,9 +35,11 @@ class InterviewsController < ApplicationController
 		     @emails.push memeber.user.email
 		  end
 
-		  duration = (@interview.end_time - Time.now)/60 - 30
-		  SendNotification.perform_at(duration.minutes.from_now, @interview.schedule_at, @interview.end_time, @emails)
-		  InterviewMailer.interview_update(@interview).deliver
+		  
+		  duration = (@star_time - Time.now)
+		  duration = (duration.to_i - 19800)/60 - 30
+		  # SendNotification.perform_at(10.seconds.from_now, @interview.schedule_at, @interview.end_time, @emails)
+		  # InterviewMailer.interview_update(@interview).deliver
 	      flash[:success] = "Interview updated."
 	      redirect_to interviews_path
 	    else
