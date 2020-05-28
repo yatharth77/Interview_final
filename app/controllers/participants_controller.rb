@@ -15,9 +15,9 @@ class ParticipantsController < ApplicationController
 		  duration = (@star_time - Time.now)
 		  duration = (duration.to_i - 19800)/60 - 30
 		  if duration>0
-		  	# SendNotification.perform_at(duration.from_now, @interview.schedule_at, @interview.end_time, @emails)
+		  	SendNotification.perform_at(duration.from_now, @interview.schedule_at, @interview.end_time, @emails)
 		  end
-		  # InterviewMailer.interview_confirmation(@participant).deliver
+		  InterviewMailer.interview_confirmation(@participant).deliver
 	      flash[:success] = "Your participant has been added!"
 	      redirect_to interviews_path
 	    else
@@ -30,7 +30,7 @@ class ParticipantsController < ApplicationController
 	  @participant = @interview.participants.find(params[:id])
 
 	  @participant.destroy
-	  # InterviewMailer.remove_update(@participant).deliver
+	  InterviewMailer.remove_update(@participant).deliver
 
 	  flash[:success] = "Comment deleted :("
 	  redirect_to root_path

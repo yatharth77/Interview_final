@@ -38,8 +38,8 @@ class InterviewsController < ApplicationController
 		  
 		  duration = (@star_time - Time.now)
 		  duration = (duration.to_i - 19800)/60 - 30
-		  # SendNotification.perform_at(10.seconds.from_now, @interview.schedule_at, @interview.end_time, @emails)
-		  # InterviewMailer.interview_update(@interview).deliver
+		  SendNotification.perform_at(10.seconds.from_now, @interview.schedule_at, @interview.end_time, @emails)
+		  InterviewMailer.interview_update(@interview).deliver
 	      flash[:success] = "Interview updated."
 	      redirect_to interviews_path
 	    else
